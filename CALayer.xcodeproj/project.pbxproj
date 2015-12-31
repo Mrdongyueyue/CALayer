@@ -15,6 +15,7 @@
 		73427D3B1C352B0F005DA646 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73427D391C352B0F005DA646 /* LaunchScreen.storyboard */; };
 		73427D461C352B10005DA646 /* CALayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73427D451C352B10005DA646 /* CALayerTests.m */; };
 		73427D511C352B10005DA646 /* CALayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73427D501C352B10005DA646 /* CALayerUITests.m */; };
+		73427D601C353464005DA646 /* YYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73427D5F1C353464005DA646 /* YYViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		73427D4C1C352B10005DA646 /* CALayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CALayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73427D501C352B10005DA646 /* CALayerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CALayerUITests.m; sourceTree = "<group>"; };
 		73427D521C352B10005DA646 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73427D5E1C353464005DA646 /* YYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYViewController.h; sourceTree = "<group>"; };
+		73427D5F1C353464005DA646 /* YYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				73427D2F1C352B0F005DA646 /* AppDelegate.m */,
 				73427D311C352B0F005DA646 /* ViewController.h */,
 				73427D321C352B0F005DA646 /* ViewController.m */,
+				73427D5E1C353464005DA646 /* YYViewController.h */,
+				73427D5F1C353464005DA646 /* YYViewController.m */,
 				73427D341C352B0F005DA646 /* Main.storyboard */,
 				73427D371C352B0F005DA646 /* Assets.xcassets */,
 				73427D391C352B0F005DA646 /* LaunchScreen.storyboard */,
@@ -272,6 +277,7 @@
 			files = (
 				73427D331C352B0F005DA646 /* ViewController.m in Sources */,
 				73427D301C352B0F005DA646 /* AppDelegate.m in Sources */,
+				73427D601C353464005DA646 /* YYViewController.m in Sources */,
 				73427D2D1C352B0F005DA646 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
