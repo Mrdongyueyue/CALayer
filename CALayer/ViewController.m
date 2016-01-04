@@ -8,8 +8,6 @@
 
 #import "ViewController.h"
 
-#import "YYViewController.h"
-
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *array;
@@ -38,9 +36,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    YYViewController *yyVC = [[YYViewController alloc]init];
-    yyVC.layerType = self.array[indexPath.row];
-    [self.navigationController pushViewController:yyVC animated:YES];
+    NSString *classString = self.array[indexPath.row];
+    Class class = NSClassFromString(classString);
+    UIViewController *layerVC = (UIViewController *)[[class alloc]init];
+    layerVC.title = classString;
+    layerVC.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController pushViewController:layerVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -49,7 +50,7 @@
 
 - (NSArray *)array{
     if (!_array) {
-        _array = @[@"CALayerType",@"CATextLayerType",@"CAShapeLayerType",@"CATiledLayerType",@"CAGradientLayerType"];
+        _array = @[@"CALayerType",@"CATextLayerType",@"CAShapeLayerType",@"CATiledLayerType",@"CAGradientLayerType",@"CAEmitterLayerType"];
     }
     return _array;
 }

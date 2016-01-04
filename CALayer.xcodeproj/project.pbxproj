@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49746D8F1C3674BA005BC7D0 /* CALayerType.m in Sources */ = {isa = PBXBuildFile; fileRef = 49746D8E1C3674BA005BC7D0 /* CALayerType.m */; };
+		49746D921C3674CD005BC7D0 /* CATextLayerType.m in Sources */ = {isa = PBXBuildFile; fileRef = 49746D911C3674CD005BC7D0 /* CATextLayerType.m */; };
+		49746D951C3674DE005BC7D0 /* CAShapeLayerType.m in Sources */ = {isa = PBXBuildFile; fileRef = 49746D941C3674DE005BC7D0 /* CAShapeLayerType.m */; };
+		49746D981C3674F0005BC7D0 /* CATiledLayerType.m in Sources */ = {isa = PBXBuildFile; fileRef = 49746D971C3674F0005BC7D0 /* CATiledLayerType.m */; };
+		49746D9B1C367503005BC7D0 /* CAGradientLayerType.m in Sources */ = {isa = PBXBuildFile; fileRef = 49746D9A1C367503005BC7D0 /* CAGradientLayerType.m */; };
+		49746D9F1C3677AA005BC7D0 /* CAEAGLLayerType.m in Sources */ = {isa = PBXBuildFile; fileRef = 49746D9E1C3677AA005BC7D0 /* CAEAGLLayerType.m */; };
+		49746DA21C367B5C005BC7D0 /* CAEmitterLayerType.m in Sources */ = {isa = PBXBuildFile; fileRef = 49746DA11C367B5C005BC7D0 /* CAEmitterLayerType.m */; };
 		73427D2D1C352B0F005DA646 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73427D2C1C352B0F005DA646 /* main.m */; };
 		73427D301C352B0F005DA646 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73427D2F1C352B0F005DA646 /* AppDelegate.m */; };
 		73427D331C352B0F005DA646 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73427D321C352B0F005DA646 /* ViewController.m */; };
@@ -36,6 +43,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49746D8D1C3674BA005BC7D0 /* CALayerType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALayerType.h; sourceTree = "<group>"; };
+		49746D8E1C3674BA005BC7D0 /* CALayerType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CALayerType.m; sourceTree = "<group>"; };
+		49746D901C3674CD005BC7D0 /* CATextLayerType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATextLayerType.h; sourceTree = "<group>"; };
+		49746D911C3674CD005BC7D0 /* CATextLayerType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATextLayerType.m; sourceTree = "<group>"; };
+		49746D931C3674DE005BC7D0 /* CAShapeLayerType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAShapeLayerType.h; sourceTree = "<group>"; };
+		49746D941C3674DE005BC7D0 /* CAShapeLayerType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAShapeLayerType.m; sourceTree = "<group>"; };
+		49746D961C3674F0005BC7D0 /* CATiledLayerType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATiledLayerType.h; sourceTree = "<group>"; };
+		49746D971C3674F0005BC7D0 /* CATiledLayerType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATiledLayerType.m; sourceTree = "<group>"; };
+		49746D991C367503005BC7D0 /* CAGradientLayerType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAGradientLayerType.h; sourceTree = "<group>"; };
+		49746D9A1C367503005BC7D0 /* CAGradientLayerType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAGradientLayerType.m; sourceTree = "<group>"; };
+		49746D9D1C3677AA005BC7D0 /* CAEAGLLayerType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAEAGLLayerType.h; sourceTree = "<group>"; };
+		49746D9E1C3677AA005BC7D0 /* CAEAGLLayerType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAEAGLLayerType.m; sourceTree = "<group>"; };
+		49746DA01C367B5C005BC7D0 /* CAEmitterLayerType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAEmitterLayerType.h; sourceTree = "<group>"; };
+		49746DA11C367B5C005BC7D0 /* CAEmitterLayerType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAEmitterLayerType.m; sourceTree = "<group>"; };
 		73427D281C352B0F005DA646 /* CALayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CALayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73427D2C1C352B0F005DA646 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		73427D2E1C352B0F005DA646 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,6 +102,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49746D9C1C367761005BC7D0 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				49746D8D1C3674BA005BC7D0 /* CALayerType.h */,
+				49746D8E1C3674BA005BC7D0 /* CALayerType.m */,
+				49746D991C367503005BC7D0 /* CAGradientLayerType.h */,
+				49746D9A1C367503005BC7D0 /* CAGradientLayerType.m */,
+				49746D961C3674F0005BC7D0 /* CATiledLayerType.h */,
+				49746D971C3674F0005BC7D0 /* CATiledLayerType.m */,
+				49746D931C3674DE005BC7D0 /* CAShapeLayerType.h */,
+				49746D941C3674DE005BC7D0 /* CAShapeLayerType.m */,
+				49746D901C3674CD005BC7D0 /* CATextLayerType.h */,
+				49746D911C3674CD005BC7D0 /* CATextLayerType.m */,
+				49746D9D1C3677AA005BC7D0 /* CAEAGLLayerType.h */,
+				49746D9E1C3677AA005BC7D0 /* CAEAGLLayerType.m */,
+				49746DA01C367B5C005BC7D0 /* CAEmitterLayerType.h */,
+				49746DA11C367B5C005BC7D0 /* CAEmitterLayerType.m */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 		73427D1F1C352B0F005DA646 = {
 			isa = PBXGroup;
 			children = (
@@ -104,12 +146,11 @@
 		73427D2A1C352B0F005DA646 /* CALayer */ = {
 			isa = PBXGroup;
 			children = (
+				49746D9C1C367761005BC7D0 /* New Group */,
 				73427D2E1C352B0F005DA646 /* AppDelegate.h */,
 				73427D2F1C352B0F005DA646 /* AppDelegate.m */,
 				73427D311C352B0F005DA646 /* ViewController.h */,
 				73427D321C352B0F005DA646 /* ViewController.m */,
-				73427D5E1C353464005DA646 /* YYViewController.h */,
-				73427D5F1C353464005DA646 /* YYViewController.m */,
 				73427D341C352B0F005DA646 /* Main.storyboard */,
 				73427D371C352B0F005DA646 /* Assets.xcassets */,
 				73427D391C352B0F005DA646 /* LaunchScreen.storyboard */,
@@ -122,6 +163,8 @@
 		73427D2B1C352B0F005DA646 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				73427D5E1C353464005DA646 /* YYViewController.h */,
+				73427D5F1C353464005DA646 /* YYViewController.m */,
 				73427D2C1C352B0F005DA646 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -275,10 +318,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49746D921C3674CD005BC7D0 /* CATextLayerType.m in Sources */,
+				49746D951C3674DE005BC7D0 /* CAShapeLayerType.m in Sources */,
+				49746D981C3674F0005BC7D0 /* CATiledLayerType.m in Sources */,
+				49746D9B1C367503005BC7D0 /* CAGradientLayerType.m in Sources */,
 				73427D331C352B0F005DA646 /* ViewController.m in Sources */,
 				73427D301C352B0F005DA646 /* AppDelegate.m in Sources */,
+				49746D9F1C3677AA005BC7D0 /* CAEAGLLayerType.m in Sources */,
 				73427D601C353464005DA646 /* YYViewController.m in Sources */,
 				73427D2D1C352B0F005DA646 /* main.m in Sources */,
+				49746D8F1C3674BA005BC7D0 /* CALayerType.m in Sources */,
+				49746DA21C367B5C005BC7D0 /* CAEmitterLayerType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +554,7 @@
 				73427D571C352B10005DA646 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		73427D581C352B10005DA646 /* Build configuration list for PBXNativeTarget "CALayerTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +563,7 @@
 				73427D5A1C352B10005DA646 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		73427D5B1C352B10005DA646 /* Build configuration list for PBXNativeTarget "CALayerUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +572,7 @@
 				73427D5D1C352B10005DA646 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

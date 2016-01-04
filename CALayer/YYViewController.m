@@ -126,8 +126,8 @@ NSString * const CAGradientLayerType = @"CAGradientLayerType";
     //可以不设置
     gradientLayer.locations = locations;
     //startPoint endPoint 确定条纹方向 不设置 默认水平默认值[.5,0]和[.5,1]
-    gradientLayer.startPoint = CGPointMake(0, 1);
-    gradientLayer.endPoint = CGPointMake(1, 0);
+    gradientLayer.startPoint = CGPointMake(0, 0);
+    gradientLayer.endPoint = CGPointMake(1, 1);
     
     gradientLayer.type = kCAGradientLayerAxial;
     
