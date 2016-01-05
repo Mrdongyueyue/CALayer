@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //未完成
     YYScrollView *view = [[YYScrollView alloc]initWithFrame:CGRectMake(0, 84, 300, 400)];
     [self.view addSubview:view];
 //    UIImageView *imageView = [[UIImageView alloc]init];
