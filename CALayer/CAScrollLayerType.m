@@ -8,7 +8,13 @@
 
 #import "CAScrollLayerType.h"
 
+#import "YYScrollView.h"
+
 @interface CAScrollLayerType ()
+
+@property (nonatomic , weak)CAScrollLayer *scrollLayer;
+
+@property (nonatomic , weak) UIImageView *imageView;
 
 @end
 
@@ -17,11 +23,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self addScrollLayer];
+    YYScrollView *view = [[YYScrollView alloc]initWithFrame:CGRectMake(0, 84, 300, 400)];
+    [self.view addSubview:view];
+//    UIImageView *imageView = [[UIImageView alloc]init];
+//    [self.view addSubview:imageView];
+//    
+//    imageView.contentMode = UIViewContentModeScaleAspectFit;
+//    _imageView = imageView;
+//    _imageView.frame = CGRectMake(10, 200, 100, 100);
+//    _imageView.image =[UIImage imageNamed:@"IU"];
+//    
+//    [self addScrollLayer];
 }
 
 - (void)addScrollLayer {
+    CAScrollLayer *scrollLayer = [CAScrollLayer layer];
+    scrollLayer.scrollMode = kCAScrollHorizontally;
+    scrollLayer.bounds = CGRectMake(0, 0 , 200, 200);
+    scrollLayer.position = CGPointMake(150, 150);
+    scrollLayer.backgroundColor = [UIColor redColor].CGColor;
     
+    
+    
+    
+    
+    
+    [self.view.layer addSublayer:scrollLayer];
+    _scrollLayer = scrollLayer;
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//    [_scrollLayer scrollPoint:CGPointMake(200, 200)];
+    [_scrollLayer scrollToRect:CGRectMake(90, 90, 90, 90)];
 }
 
 /*

@@ -23,12 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImageView *imageView = [[UIImageView alloc]init];
-    [self.view addSubview:imageView];
-    
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    _imageView = imageView;
-    
     [self addReplicatorLayer];
     
     
@@ -44,11 +38,22 @@
 }
 
 - (void)selectAnimation:(UIButton *)btn{
-    SEL method = NSSelectorFromString([NSString stringWithFormat:@"animation%ld",btn.tag]);
     [_imageView.layer removeAllAnimations];
     [_replicatorLayer removeAllAnimations];
-    _imageView.image = nil;
+    [_replicatorLayer removeFromSuperlayer];
+    [_imageView removeFromSuperview];
+    [self addImageView];
+    [self addReplicatorLayer];
+    SEL method = NSSelectorFromString([NSString stringWithFormat:@"animation%ld",btn.tag]);
     [self performSelector:method withObject:self];
+}
+
+- (void)addImageView {
+    UIImageView *imageView = [[UIImageView alloc]init];
+    [self.view addSubview:imageView];
+    
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    _imageView = imageView;
 }
 
 - (void)addReplicatorLayer {
@@ -79,7 +84,6 @@
     
 }
 
-
 - (void)animation1{
     
     _imageView.frame = CGRectMake(10, 200, 100, 100);
@@ -101,7 +105,7 @@
     _imageView.backgroundColor = [UIColor orangeColor];
     _imageView.layer.cornerRadius = 10;
     _imageView.layer.masksToBounds = YES;
-    _imageView.layer.transform = CATransform3DMakeScale(0.1, 0.1, 0.1);
+    _imageView.layer.transform = CATransform3DMakeScale(0.01, 0.01, 0.01);
     
     
     CGFloat count = 15.0;
@@ -115,7 +119,7 @@
 //    animation.autoreverses = YES;
     //从原大小变小时,动画 回到原状时不要动画
     animation.fromValue = @(1);
-    animation.toValue = @(0.1);
+    animation.toValue = @(0.01);
     [_imageView.layer addAnimation:animation forKey:nil];
 }
 

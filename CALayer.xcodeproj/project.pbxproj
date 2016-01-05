@@ -23,6 +23,7 @@
 		73427D461C352B10005DA646 /* CALayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73427D451C352B10005DA646 /* CALayerTests.m */; };
 		73427D511C352B10005DA646 /* CALayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73427D501C352B10005DA646 /* CALayerUITests.m */; };
 		73427D601C353464005DA646 /* YYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73427D5F1C353464005DA646 /* YYViewController.m */; };
+		7384A4531C3B57A300C0B2A2 /* YYScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7384A4521C3B57A300C0B2A2 /* YYScrollView.m */; };
 		73F3EBA21C3A444B001B1217 /* YYEmitterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F3EBA11C3A444B001B1217 /* YYEmitterCell.m */; };
 		73F3EBA51C3A4461001B1217 /* YYEmitterCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F3EBA41C3A4461001B1217 /* YYEmitterCellModel.m */; };
 		73F3EBA81C3A4644001B1217 /* YYEmitterLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F3EBA71C3A4644001B1217 /* YYEmitterLayer.m */; };
@@ -81,6 +82,8 @@
 		73427D521C352B10005DA646 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73427D5E1C353464005DA646 /* YYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYViewController.h; sourceTree = "<group>"; };
 		73427D5F1C353464005DA646 /* YYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYViewController.m; sourceTree = "<group>"; };
+		7384A4511C3B57A300C0B2A2 /* YYScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYScrollView.h; sourceTree = "<group>"; };
+		7384A4521C3B57A300C0B2A2 /* YYScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYScrollView.m; sourceTree = "<group>"; };
 		73F3EBA01C3A444B001B1217 /* YYEmitterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYEmitterCell.h; sourceTree = "<group>"; };
 		73F3EBA11C3A444B001B1217 /* YYEmitterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYEmitterCell.m; sourceTree = "<group>"; };
 		73F3EBA31C3A4461001B1217 /* YYEmitterCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYEmitterCellModel.h; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				73F3EBAD1C3A827B001B1217 /* CAScrollLayerType.m */,
 				73F3EBAF1C3A82AB001B1217 /* CATransformLayerType.h */,
 				73F3EBB01C3A82AB001B1217 /* CATransformLayerType.m */,
+				7384A4511C3B57A300C0B2A2 /* YYScrollView.h */,
+				7384A4521C3B57A300C0B2A2 /* YYScrollView.m */,
 			);
 			name = "New Group";
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 				73427D601C353464005DA646 /* YYViewController.m in Sources */,
 				73F3EBAB1C3A6789001B1217 /* CAReplicatorLayerType.m in Sources */,
 				73F3EBA51C3A4461001B1217 /* YYEmitterCellModel.m in Sources */,
+				7384A4531C3B57A300C0B2A2 /* YYScrollView.m in Sources */,
 				73F3EBA81C3A4644001B1217 /* YYEmitterLayer.m in Sources */,
 				73F3EBB11C3A82AB001B1217 /* CATransformLayerType.m in Sources */,
 				73427D2D1C352B0F005DA646 /* main.m in Sources */,
