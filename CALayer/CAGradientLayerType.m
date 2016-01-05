@@ -10,6 +10,8 @@
 
 @interface CAGradientLayerType ()
 
+@property (nonatomic , strong)UILabel *label;
+
 @end
 
 @implementation CAGradientLayerType
@@ -17,7 +19,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self addLabel];
+    
     [self addGradientLayer];
+    
+}
+
+- (void)addLabel{
+    
+    /*
+     1. 新建label, 把label添加到view上(这个label图层作用也只是设置mask, 不用来显示)
+     2. 创建 CAGradientLayer, 设置其渐变色, 将其添加到 label 的superView的layer上, 并覆盖在label上
+     3. 设置 gradientLayer的mask为 label的layer 重新设置label的frame
+     */
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(100, 200, 240, 50)];
+//    label.textColor = [UIColor clearColor];
+//    label.backgroundColor = [UIColor lightGrayColor];
+    label.font = [UIFont boldSystemFontOfSize:20];
+    label.text = @"渐变色?哼,渐变色!";
+    label.textAlignment = NSTextAlignmentCenter;
+    
+//    [self.view addSubview:label];
+    _label = label;
 }
 
 /** 渐变色CAGradientLayer */
@@ -47,11 +71,15 @@
     gradientLayer.bounds = CGRectMake(0, 0, 400, 400);
     gradientLayer.position = CGPointMake(200, 340);
     
+    gradientLayer.mask = _label.layer;
+    
     [self.view.layer addSublayer:gradientLayer];
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"colors"];
     
     animation.duration = 2;
+    
+    animation.repeatCount = MAXFLOAT;
     
     NSMutableArray *toValue = [NSMutableArray array];
     
@@ -80,7 +108,7 @@
      
      @property(nullable, copy) NSArray<NSNumber *> *locations;
      
-     startPoint和endPoint 决定渐变gradient 绘制时的坐标空间.startPoint对应于第一层次,endPoint对应最后层次。这两个点是定义在一个单元坐标空间,然后映射到层的边界矩形.(即[0,0]是手机的左下角,[1,1]是右上角).(默认值[0.5,0]和[0.5,1].都可以做成动画.
+     startPoint和endPoint 决定渐变gradient 绘制时的坐标空间.startPoint对应于第一层次,endPoint对应最后层次.这两个点是定义在一个单元坐标空间,然后映射到层的边界矩形.(即[0,0]是手机的左下角,[1,1]是右上角).(默认值[0.5,0]和[0.5,1].都可以做成动画.
      The start and end points of the gradient when drawn into the layer's
      * coordinate space. The start point corresponds to the first gradient
      * stop, the end point to the last gradient stop. Both points are
@@ -92,7 +120,7 @@
      @property CGPoint startPoint;
      @property CGPoint endPoint;
      
-     这种层次将它们分开。目前只允许的值是“轴”(默认值)。
+     这种层次将它们分开.目前只允许的值是“轴”(默认值).
      The kind of gradient that will be drawn. Currently the only allowed
      * value is `axial' (the default value).
      

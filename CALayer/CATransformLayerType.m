@@ -22,7 +22,7 @@
 
 - (void)addTransformLayer {//并不能用
     /* "Transform" layers are used to create true 3D layer hierarchies.
-     “转换”层是用来创建真正的三维层的层次结构。
+     “转换”层是用来创建真正的三维层的层次结构.
      *
      * Unlike normal layers, transform layers do not project (i.e. flatten)
      * their sublayers into the plane at Z=0. However due to this neither

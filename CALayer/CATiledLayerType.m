@@ -53,7 +53,7 @@
 /**
  *  CALayerDelegate
  *  支持多线程绘制，-drawLayer:inContext:方法可以在多个线程中同时地并发调用
- *  所以请小心谨慎地确保你在这个方法中实现的绘制代码是线程安全的。(不懂哎)
+ *  所以请小心谨慎地确保你在这个方法中实现的绘制代码是线程安全的.(不懂哎)
  */
 - (void)drawLayer:(CATiledLayer *)layer inContext:(CGContextRef)ctx{
     

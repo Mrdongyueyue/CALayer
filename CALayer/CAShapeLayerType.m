@@ -25,14 +25,14 @@
 - (void)addLayerFromBezierPath{
     
     UIBezierPath *bezierPath = [UIBezierPath bezierPath];
-    [bezierPath moveToPoint:CGPointMake(10, 20)];
-    [bezierPath addCurveToPoint:CGPointMake(200, 300) controlPoint1:CGPointMake(5, 0) controlPoint2:CGPointMake(200, 0)];
-    bezierPath.lineWidth = 2;
+    [bezierPath moveToPoint:CGPointMake(0, 0)];
+    [bezierPath addCurveToPoint:CGPointMake(250, 400) controlPoint1:CGPointMake(200, 100) controlPoint2:CGPointMake(50, 350)];
     
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = bezierPath.CGPath;
     shapeLayer.strokeColor = [UIColor redColor].CGColor;
     shapeLayer.fillColor = nil;
+    shapeLayer.lineWidth = 4;
     
     //根据bezierPath 获取 CAShapeLayer
     CGPathRef pathRef = CGPathCreateCopyByStrokingPath(shapeLayer.path, NULL, bezierPath.lineWidth, kCGLineCapRound, kCGLineJoinRound, shapeLayer.miterLimit);
@@ -40,7 +40,10 @@
     shapeLayer.bounds = CGPathGetBoundingBox(pathRef);
     CGPathRelease(pathRef);
     
-    UIView *markView = [[UIView alloc]initWithFrame:CGRectMake(100, 150, 2, 2)];
+    shapeLayer.position = self.view.center;
+    shapeLayer.backgroundColor = [UIColor orangeColor].CGColor;
+    
+    UIView *markView = [[UIView alloc]initWithFrame:CGRectMake(100, 100, 2, 2)];
     markView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:markView];
     
