@@ -17,6 +17,8 @@
 
 @protocol YYEmitterLayerDelegate <NSObject>
 @optional
+- (void)emitterLayer:(YYEmitterLayer *)layer cellAtIndex:(NSUInteger)index keyPath:(NSString *)keyPath;
+
 
 @end
 
@@ -24,6 +26,8 @@
 @interface YYEmitterLayer : CAEmitterLayer
 
 @property (nonatomic, weak) id<YYEmitterLayerDatasource> dataSource;
+@property (nonatomic, weak) id<YYEmitterLayerDelegate> yy_delegate;
+
 - (void)reloadData;
 
 @end

@@ -61,7 +61,7 @@
 @property(nonatomic ,copy) NSString *magnificationFilter;
 @property (nonatomic , assign)float minificationFilterBias;
 
-@property(nonatomic ,nullable, copy) NSArray<CAEmitterCell *> *emitterCells;
+@property(nonatomic , strong) NSArray<YYEmitterCellModel *> *emitterCells;
 
 @property(nonatomic ,nullable, copy) NSDictionary *style;
 @end

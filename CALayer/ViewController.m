@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSString *str = NSStringFromCGRect(self.view.bounds);
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 

@@ -7,10 +7,16 @@
 //
 
 #import "CAEmitterLayerType.h"
+#import "MJExtension.h"
+#import "YYEmitterCellModel.h"
+#import "YYEmitterCell.h"
+#import "YYEmitterLayer.h"
 
-@interface CAEmitterLayerType ()
+@interface CAEmitterLayerType ()<YYEmitterLayerDatasource>
 
 @property (nonatomic , weak)CAEmitterLayer *emitterLayer;
+
+@property (nonatomic, strong) NSArray *models;
 
 @end
 
@@ -18,8 +24,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSArray *plist = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"YYEmitterCellProperty.plist" ofType:nil]];
+    _models = [YYEmitterCellModel mj_objectArrayWithKeyValuesArray:plist];
+//    YYEmitterCellModel *model = [_models lastObject];
+    
+    YYEmitterLayer *layer = [YYEmitterLayer layer];
+    layer.dataSource = self;
+    [self.view.layer addSublayer:layer];
+    
+    [layer reloadData];
+    
     
     [self addCAEmitterLayer];
+}
+
+- (CAEmitterCell *)emitterLayer:(YYEmitterLayer *)layer cellAtIndex:(NSUInteger)index {
+    YYEmitterCell *cell = [YYEmitterCell emitterCell];
+    cell.cellModel = _models[index];
+    return cell;
+}
+- (NSUInteger)numberOfCells {
+    return _models.count;
 }
 
 - (void)addCAEmitterLayer{
