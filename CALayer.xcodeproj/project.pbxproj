@@ -184,7 +184,21 @@
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
-		49746D9C1C367761005BC7D0 /* New Group */ = {
+		3C70A02A1C4A27E800D75A01 /* YYEmitterLayer */ = {
+			isa = PBXGroup;
+			children = (
+				73F3EBA61C3A4644001B1217 /* YYEmitterLayer.h */,
+				73F3EBA71C3A4644001B1217 /* YYEmitterLayer.m */,
+				73F3EBA01C3A444B001B1217 /* YYEmitterCell.h */,
+				73F3EBA11C3A444B001B1217 /* YYEmitterCell.m */,
+				73F3EBA31C3A4461001B1217 /* YYEmitterCellModel.h */,
+				73F3EBA41C3A4461001B1217 /* YYEmitterCellModel.m */,
+				3C709FE51C4A187500D75A01 /* YYEmitterCellProperty.plist */,
+			);
+			name = YYEmitterLayer;
+			sourceTree = "<group>";
+		};
+		49746D9C1C367761005BC7D0 /* SubLayers */ = {
 			isa = PBXGroup;
 			children = (
 				49746D8D1C3674BA005BC7D0 /* CALayerType.h */,
@@ -210,7 +224,7 @@
 				7384A4511C3B57A300C0B2A2 /* YYScrollView.h */,
 				7384A4521C3B57A300C0B2A2 /* YYScrollView.m */,
 			);
-			name = "New Group";
+			name = SubLayers;
 			sourceTree = "<group>";
 		};
 		73427D1F1C352B0F005DA646 = {
@@ -236,8 +250,9 @@
 		73427D2A1C352B0F005DA646 /* CALayer */ = {
 			isa = PBXGroup;
 			children = (
+				3C70A02A1C4A27E800D75A01 /* YYEmitterLayer */,
 				3C70A00A1C4A214A00D75A01 /* MJExtension */,
-				49746D9C1C367761005BC7D0 /* New Group */,
+				49746D9C1C367761005BC7D0 /* SubLayers */,
 				73427D2E1C352B0F005DA646 /* AppDelegate.h */,
 				73427D2F1C352B0F005DA646 /* AppDelegate.m */,
 				73427D311C352B0F005DA646 /* ViewController.h */,
@@ -256,14 +271,7 @@
 			children = (
 				73427D5E1C353464005DA646 /* YYViewController.h */,
 				73427D5F1C353464005DA646 /* YYViewController.m */,
-				73F3EBA61C3A4644001B1217 /* YYEmitterLayer.h */,
-				73F3EBA71C3A4644001B1217 /* YYEmitterLayer.m */,
-				73F3EBA01C3A444B001B1217 /* YYEmitterCell.h */,
-				73F3EBA11C3A444B001B1217 /* YYEmitterCell.m */,
-				73F3EBA31C3A4461001B1217 /* YYEmitterCellModel.h */,
-				73F3EBA41C3A4461001B1217 /* YYEmitterCellModel.m */,
 				73427D2C1C352B0F005DA646 /* main.m */,
-				3C709FE51C4A187500D75A01 /* YYEmitterCellProperty.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
