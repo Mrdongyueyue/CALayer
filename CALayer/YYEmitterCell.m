@@ -9,6 +9,12 @@
 #import "YYEmitterCell.h"
 #import "YYEmitterCellModel.h"
 
+@interface YYEmitterCell ()
+
+@property (nonatomic, strong) NSArray *emitterCellModels;
+
+@end
+
 @implementation YYEmitterCell
 
 - (void)setCellModel:(YYEmitterCellModel *)cellModel{

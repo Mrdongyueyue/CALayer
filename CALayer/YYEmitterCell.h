@@ -14,5 +14,5 @@
 
 @property (nonatomic, strong) YYEmitterCellModel *cellModel;
 
-@property (nonatomic, strong) NSArray *emitterCellModels;
+
 @end

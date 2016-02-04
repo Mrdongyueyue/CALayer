@@ -24,6 +24,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    /*********************************************************************/
+    /******                                                         ******/
+    /******  动画来自 @kevinolondon:https://github.com/kevinolondon  ******/
+    /******                                                         ******/
+    /*********************************************************************/
+    
+    //
     NSArray *plist = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"YYEmitterCellProperty.plist" ofType:nil]];
     _models = [YYEmitterCellModel mj_objectArrayWithKeyValuesArray:plist];
 //    YYEmitterCellModel *model = [_models lastObject];
