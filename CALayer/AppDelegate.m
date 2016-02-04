@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +20,18 @@
     // Override point for customization after application launch.
     return YES;
 }
+- (void)application:(UIApplication *)application performActionForShortcutItem:(nonnull UIApplicationShortcutItem *)shortcutItem completionHandler:(nonnull void (^)(BOOL))completionHandler {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *controller = [storyboard instantiateInitialViewController];
 
+    Class class = NSClassFromString(shortcutItem.type);
+    UIViewController *vc = (UIViewController *)[[class alloc]init];
+    vc.view.backgroundColor = [UIColor whiteColor];
+    vc.title = shortcutItem.type; 
+    [controller pushViewController:vc animated:NO];
+    self.window.rootViewController = controller;
+    [self.window makeKeyAndVisible];
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

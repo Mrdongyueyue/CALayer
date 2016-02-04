@@ -8,10 +8,11 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,UIViewControllerPreviewingDelegate>
 
 @property (nonatomic, strong) NSArray *array;
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSIndexPath *peekIndexPath;
 @end
 
 @implementation ViewController
@@ -20,7 +21,58 @@
     [super viewDidLoad];
     NSString *str = NSStringFromCGRect(self.view.bounds);
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [self setUp3DTouch];
 }
+
+- (void)setUp3DTouch {
+    if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
+        [self registerForPreviewingWithDelegate:self sourceView:self.view];
+        NSMutableArray *arr = [NSMutableArray array];
+        for (NSString *str in @[@"CATiledLayerType",@"CAGradientLayerType",@"CAEmitterLayerType",@"CAReplicatorLayerType"]) {
+            UIApplicationShortcutItem *item = [[UIApplicationShortcutItem alloc]initWithType:str localizedTitle:str localizedSubtitle:@"three" icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypePlay] userInfo:nil];
+            
+            [arr addObject:item];
+        }
+        [UIApplication sharedApplication].shortcutItems = arr;
+    }
+}
+
+- (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location NS_AVAILABLE_IOS(9_0) {
+    CGRect rect = CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64);
+    [previewingContext setSourceRect:rect];
+    location.y -= 64;
+    NSIndexPath *indexPath = [_tableView indexPathForRowAtPoint:location];
+    _peekIndexPath = indexPath;
+    NSLog(@"%@,%ld",NSStringFromCGPoint(location),(long)indexPath.row);
+    NSString *classString = self.array[indexPath.row];
+    Class class = NSClassFromString(classString);
+    UIViewController *layerVC = (UIViewController *)[[class alloc]init];
+    layerVC.title = classString;
+    layerVC.view.backgroundColor = [UIColor whiteColor];
+    return layerVC;
+}
+- (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit NS_AVAILABLE_IOS(9_0) {
+    NSString *classString = self.array[_peekIndexPath.row];
+    Class class = NSClassFromString(classString);
+    UIViewController *layerVC = (UIViewController *)[[class alloc]init];
+    layerVC.title = classString;
+    layerVC.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController pushViewController:layerVC animated:YES];
+}
+
+- (NSArray<id<UIPreviewActionItem>> *)previewActionItems {
+    UIPreviewAction *item = [UIPreviewAction actionWithTitle:@"进入" style:UIPreviewActionStyleSelected handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSString *classString = self.array[_peekIndexPath.row];
+        previewViewController.title = classString;
+        previewViewController.view.backgroundColor = [UIColor whiteColor];
+        [self.navigationController pushViewController:previewViewController animated:YES];
+    }];
+    
+    UIPreviewActionGroup *group = [UIPreviewActionGroup actionGroupWithTitle:@"" style:UIPreviewActionStyleDestructive actions:@[item]];
+    
+    return @[group];
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.array.count;
