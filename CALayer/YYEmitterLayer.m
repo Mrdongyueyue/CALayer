@@ -37,5 +37,8 @@ typedef struct DataSourceFlags DataSourceFlags;
     
     self.emitterCells = cells;
 }
-
+- (void)addAnimation:(CAAnimation *)anim forKey:(NSString *)key {
+    [super addAnimation:anim forKey:key];
+    
+}
 @end

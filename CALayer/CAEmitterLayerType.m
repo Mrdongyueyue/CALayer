@@ -32,15 +32,15 @@
     /*********************************************************************/
     
     //
-    NSArray *plist = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"YYEmitterCellProperty.plist" ofType:nil]];
-    _models = [YYEmitterCellModel mj_objectArrayWithKeyValuesArray:plist];
-//    YYEmitterCellModel *model = [_models lastObject];
-    
-    YYEmitterLayer *layer = [YYEmitterLayer layer];
-    layer.dataSource = self;
-    [self.view.layer addSublayer:layer];
-    
-    [layer reloadData];
+//    NSArray *plist = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"YYEmitterCellProperty.plist" ofType:nil]];
+//    _models = [YYEmitterCellModel mj_objectArrayWithKeyValuesArray:plist];
+////    YYEmitterCellModel *model = [_models lastObject];
+//    
+//    YYEmitterLayer *layer = [YYEmitterLayer layer];
+//    layer.dataSource = self;
+//    [self.view.layer addSublayer:layer];
+//    
+//    [layer reloadData];
     
     
     [self addCAEmitterLayer];

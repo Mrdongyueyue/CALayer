@@ -22,7 +22,24 @@
     [self addLabel];
     
     [self addGradientLayer];
-    
+    NSLog(@"CAGradientLayerType-------viewDidLoad %p",self);
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"CAGradientLayerType-------viewWillAppear %p",self);
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@"CAGradientLayerType-------viewDidAppear %p",self);
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSLog(@"CAGradientLayerType-------viewWillDisappear %p",self);
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSLog(@"CAGradientLayerType-------viewDidDisappear %p",self);
 }
 
 - (void)addLabel{

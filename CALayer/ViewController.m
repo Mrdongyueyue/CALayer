@@ -13,15 +13,30 @@
 @property (nonatomic, strong) NSArray *array;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSIndexPath *peekIndexPath;
+@property (nonatomic, strong) IBInspectable NSNumber *color;
+@property (nonatomic, strong) IBInspectable UIImage *image;
+@property (nonatomic, strong) IBInspectable UIColor *bcolor;
 @end
+
 
 @implementation ViewController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.view.backgroundColor = _bcolor;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *str = NSStringFromCGRect(self.view.bounds);
+//    NSString *str = NSStringFromCGRect(self.view.bounds);
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setUp3DTouch];
+    self.view.backgroundColor = [UIColor redColor];
+    _tableView.backgroundColor = _bcolor;
 }
 
 - (void)setUp3DTouch {
@@ -52,6 +67,8 @@
     return layerVC;
 }
 - (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit NS_AVAILABLE_IOS(9_0) {
+    [self.navigationController pushViewController:viewControllerToCommit animated:YES];
+    return;
     NSString *classString = self.array[_peekIndexPath.row];
     Class class = NSClassFromString(classString);
     UIViewController *layerVC = (UIViewController *)[[class alloc]init];
@@ -68,9 +85,9 @@
         [self.navigationController pushViewController:previewViewController animated:YES];
     }];
     
-    UIPreviewActionGroup *group = [UIPreviewActionGroup actionGroupWithTitle:@"" style:UIPreviewActionStyleDestructive actions:@[item]];
+//    UIPreviewActionGroup *group = [UIPreviewActionGroup actionGroupWithTitle:@"" style:UIPreviewActionStyleDestructive actions:@[item]];
     
-    return @[group];
+    return @[item];
 }
 
 
@@ -106,5 +123,6 @@
     }
     return _array;
 }
-
+//github test
+//github test 2
 @end

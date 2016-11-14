@@ -54,6 +54,8 @@
     self.minificationFilterBias = cellModel.minificationFilterBias;
     self.style = cellModel.style;
     self.emitterCellModels = cellModel.emitterCells;
+    
+    
 }
 
 - (void)setEmitterCellModels:(NSArray *)emitterCellModels {
