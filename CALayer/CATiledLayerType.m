@@ -8,9 +8,11 @@
 
 #import "CATiledLayerType.h"
 
-@interface CATiledLayerType ()
+@interface CATiledLayerType ()<CALayerDelegate>
 
 @property (nonatomic , weak)CATiledLayer *tiledLayer;
+
+@property (strong, nonatomic) UIActivityIndicatorView *indicatorView;
 
 @end
 
@@ -19,8 +21,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self cutImageAndSave];
+    _indicatorView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.view addSubview:_indicatorView];
+    _indicatorView.hidesWhenStopped = YES;
+    _indicatorView.center = self.view.center;
+    
     [self addTiledLayer];
+    [self cutImageAndSave];
     
 }
 
@@ -41,13 +48,14 @@
     //    tiledLayer.contentsScale = screenScale;
     tiledLayer.frame = CGRectMake(0, 0, 1920, 1200);//image.size.width, image.size.height);
     tiledLayer.delegate = self;
+    tiledLayer.drawsAsynchronously = YES;
     
     _tiledLayer = tiledLayer;
     
     scrollView.contentSize = tiledLayer.frame.size;
     //CGSizeMake(image.size.width / screenScale, image.size.height / screenScale);
     [scrollView.layer addSublayer:tiledLayer];
-    [tiledLayer setNeedsDisplay];
+    
 }
 
 /**
@@ -79,29 +87,42 @@
 
 /** 切图并保存到沙盒中 */
 - (void)cutImageAndSave{
-    NSString *filePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
-    NSString *imageName = [NSString stringWithFormat:@"%@/初雪-00-00.png",filePath];
-    UIImage *tileImage = [UIImage imageWithContentsOfFile:imageName];
-    NSLog(@"%@",imageName);
-    if (tileImage) return;
-    
-    UIImage *image = [UIImage imageNamed:@"BingWallpaper-2015-11-22.jpg"];
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
-    //    [self.view addSubview:imageView];
-    CGFloat WH = 256;
-    CGSize size = image.size;
-    
-    //ceil 向上取整
-    NSInteger rows = ceil(size.height / WH);
-    NSInteger cols = ceil(size.width / WH);
-    
-    for (NSInteger y = 0; y < rows; ++y) {
-        for (NSInteger x = 0; x < cols; ++x) {
-            UIImage *subImage = [self captureView:imageView frame:CGRectMake(x*WH, y*WH, WH, WH)];
-            NSString *path = [NSString stringWithFormat:@"%@/初雪-%02ld-%02ld.png",filePath,x,y];
-            [UIImagePNGRepresentation(subImage) writeToFile:path atomically:YES];
+    [_indicatorView startAnimating];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        NSString *filePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
+        NSString *imageName = [NSString stringWithFormat:@"%@/初雪-00-00.png",filePath];
+        UIImage *tileImage = [UIImage imageWithContentsOfFile:imageName];
+        NSLog(@"%@",imageName);
+        if (tileImage) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_indicatorView stopAnimating];
+                [_tiledLayer setNeedsDisplay];
+            });
+            return;
         }
-    }
+        
+        UIImage *image = [UIImage imageNamed:@"BingWallpaper-2015-11-22.jpg"];
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+        CGFloat WH = 256;
+        CGSize size = image.size;
+        
+        //ceil 向上取整
+        NSInteger rows = ceil(size.height / WH);
+        NSInteger cols = ceil(size.width / WH);
+        
+        for (NSInteger y = 0; y < rows; ++y) {
+            for (NSInteger x = 0; x < cols; ++x) {
+                UIImage *subImage = [self captureView:imageView frame:CGRectMake(x*WH, y*WH, WH, WH)];
+                NSString *path = [NSString stringWithFormat:@"%@/初雪-%02ld-%02ld.png",filePath,x,y];
+                [UIImagePNGRepresentation(subImage) writeToFile:path atomically:YES];
+            }
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_indicatorView stopAnimating];
+            [_tiledLayer setNeedsDisplay];
+        });
+    });
+    
 }
 
 /** 切图 */
